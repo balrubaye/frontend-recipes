@@ -1,0 +1,32 @@
+/* Styles go here */
+html, body{
+  padding:0;
+  margin:0;
+}
+.header{
+  position:fixed;
+  background: orange ;
+  height:100px;
+  width:100%;
+  transition:  all .5s;
+  margin-bottom:50px;
+ 
+}
+
+.small{
+  height: 50px;
+  background:blue;
+}
+
+.footer{
+  background: gray;
+  height:50px;
+}
+
+#main{
+  padding:10px;
+}
+
+.space{
+    height: 300px;
+}

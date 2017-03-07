@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import ReactDom from 'react-dom';
+import ScrollingHeader from './scrolling-header.jsx';
 
 module.exports= class Main extends Component{
 	constructor(props){
@@ -8,7 +9,7 @@ module.exports= class Main extends Component{
 
 	render(){
 
-		return( <div> Hello isomoriphic JS</div>); 
+		return( <ScrollingHeader /> ); 
 	}
 } 
 

@@ -5,5 +5,5 @@ import Main from './components/main.jsx';
 
 if(typeof window !== 'undefined' ){
 
-	ReactDom.render(<Main/>, document.getElementById('main'));
+	ReactDom.render(<Main/>, document.getElementById('mainDiv'));
 }
