@@ -9,7 +9,7 @@ module.exports= class Main extends Component{
 
 	render(){
 
-		return( <ScrollingHeader /> ); 
+		return( <div> Main Component </div> ); 
 	}
 } 
 

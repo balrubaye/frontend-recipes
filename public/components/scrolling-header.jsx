@@ -10,6 +10,8 @@ export default class ScrollingHeader extends Component{
 
         this.tickHeader= this.tickHeader.bind(this);
         this.flag=true;
+        this.scroll$=null;
+        
     }
 
     tickHeader(){
@@ -19,14 +21,12 @@ export default class ScrollingHeader extends Component{
                 console.log('sdsd');
                 
                 if(window.scrollY > 50){
-                //var hd= document.querySelector('#header');
-                //hd.className ='header small';
+               
                 this.setState({headerClass:'header small'});
             
                 }
                 else{
-                //var hd= document.querySelector('#header');
-                //hd.className ='header'
+                
                 this.setState({headerClass:'header'});
             }
             this.flag=true;
@@ -37,10 +37,8 @@ export default class ScrollingHeader extends Component{
     componentDidMount(){
         //window.addEventListener('scroll', this.tickHeader);
         
-
-        let scroll$= Rxjs.Observable.fromEvent(window,'scroll');
-        //console.log(counter);
-        scroll$
+        console.log('----------Mount ---------')
+         this.scroll$= Rxjs.Observable.fromEvent(window,'scroll')
         .debounceTime(200)
         .subscribe( (e)=>{
           
@@ -50,40 +48,19 @@ export default class ScrollingHeader extends Component{
     }
 
     componentWillUnmount(){
+        
+        this.scroll$.unsubscribe();
+
         //window.removeEventListener('scroll', this.tickHeader)
     }
     render(){
-        return(<div><header>
+        return(<header>
                 <div id='header' className={this.state.headerClass}>
                     <h3>Bassam Al Rubaye</h3>
                     
                 </div>
-                </header>
+                </header>);
                 
-                <div id='main'>
                 
-                    <h2>titleeeeee</h2>
-                    <p>Hello 111</p>
-                    
-                    
-                    <h2>titleeeeee</h2>
-                    <p>Hello 222</p>
-                   
-                    <h2>titleeeeee</h2>
-                    <p>Hello 333</p>
-                   
-                    <h2>titleeeeee</h2>
-                    <p>Hello 444</p>
-                    
-                    
-                    <h2>titleeeeee</h2>
-                    <p>Hello 555</p>
-                <div className='space' ></div>
-                    
-                </div>
-            
-            <footer>
-                <div className='footer'>Footer</div>
-            </footer> </div>);
     }
 }

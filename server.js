@@ -27,7 +27,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, 'views'));
 app.use('/public', express.static(path.resolve(__dirname,'public')));
 
-app.get('/', (req, res)=>{
+app.get('*', (req, res)=>{
 
 	res.render('index', {
 		title: ' Universal javascript App',

@@ -10,6 +10,7 @@ html, body{
   width:100%;
   transition:  all .5s;
   margin-bottom:50px;
+  top:65px;
  
 }
 
@@ -18,15 +19,18 @@ html, body{
   background:blue;
 }
 
+.small * {
+    font-size: small;
+    color: beige;
+}
+
+
 .footer{
   background: gray;
   height:50px;
 }
 
-#main{
-  padding:10px;
-}
 
 .space{
-    height: 300px;
+    margin-top: 300px;
 }
