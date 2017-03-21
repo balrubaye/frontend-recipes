@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Rxjs from 'rxjs';
 
+require('./scrollingHeader.css');
+
 export default class ScrollingHeader extends Component{
     constructor(props){
         super(props);

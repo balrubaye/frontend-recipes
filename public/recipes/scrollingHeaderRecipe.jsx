@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import ScrollingHeader from '../components/scrolling-header.jsx';
+import ScrollingHeader from '../components/scrollingHeader.jsx';
 
 export default class ScrollingHeaderRecipe extends Component{
     constructor(props){

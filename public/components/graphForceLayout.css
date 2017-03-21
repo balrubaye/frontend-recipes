@@ -1,0 +1,17 @@
+
+.node text {
+    fill: #000;
+    font-family: 'Times New Roman', Times, serif;
+    stroke: #777;
+    stroke-width: 0.02em;
+}
+
+.link {
+    stroke: #777;
+    stroke-width: 2px;
+}
+
+.graph-force{
+    overflow: hidden;
+    width:100%;
+}

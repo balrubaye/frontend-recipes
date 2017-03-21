@@ -3,25 +3,9 @@ html, body{
   padding:0;
   margin:0;
 }
-.header{
-  position:fixed;
-  background: orange ;
-  height:100px;
-  width:100%;
-  transition:  all .5s;
-  margin-bottom:50px;
-  top:65px;
- 
-}
 
-.small{
-  height: 50px;
-  background:blue;
-}
-
-.small * {
-    font-size: small;
-    color: beige;
+*{
+  transition: all 0.5s ease-in-out;
 }
 
 
@@ -33,4 +17,20 @@ html, body{
 
 .space{
     margin-top: 300px;
+}
+
+
+
+
+.bsbs-card-image {
+  overflow: hidden;
+}
+
+.bsbs-card-image img {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+.bsbs-card-image img:hover{
+  transform: scale(1.5);
+  cursor: pointer;
 }

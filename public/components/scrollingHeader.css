@@ -1,0 +1,20 @@
+.header{
+  position:fixed;
+  background: orange ;
+  height:100px;
+  width:100%;
+  transition:  all .5s;
+  margin-bottom:50px;
+  top:65px;
+ 
+}
+
+.small{
+  height: 50px;
+  background:blue;
+}
+
+.small * {
+    font-size: small;
+    color: beige;
+}
