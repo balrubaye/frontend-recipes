@@ -1,2 +1,2 @@
 # frontend-recipes
-Recipes to create some JS and html components using React ,D3 , Rxjs, Webpack
+Recipes to create web components using React ,D3 , Rxjs, Webpack
