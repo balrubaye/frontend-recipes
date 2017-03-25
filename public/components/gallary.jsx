@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+require('./gallary.css');
 
 export default class ImageGallary extends Component {
     constructor(props){

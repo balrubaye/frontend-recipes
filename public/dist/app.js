@@ -28,13 +28,17 @@ webpackJsonp([0],[
 
 	var _graphForceLayoutRecipe2 = _interopRequireDefault(_graphForceLayoutRecipe);
 
-	var _imageGalleryRecipe = __webpack_require__(591);
+	var _imageGalleryRecipe = __webpack_require__(593);
 
 	var _imageGalleryRecipe2 = _interopRequireDefault(_imageGalleryRecipe);
 
-	var _modalWindowRecipe = __webpack_require__(593);
+	var _modalWindowRecipe = __webpack_require__(597);
 
 	var _modalWindowRecipe2 = _interopRequireDefault(_modalWindowRecipe);
+
+	var _tabRecipe = __webpack_require__(599);
+
+	var _tabRecipe2 = _interopRequireDefault(_tabRecipe);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -72,7 +76,7 @@ webpackJsonp([0],[
 								_react2.default.createElement(
 									'a',
 									{ href: '#!', className: 'brand-logo' },
-									'Recipes'
+									'Web front-end Recipes'
 								),
 								_react2.default.createElement(
 									'ul',
@@ -122,6 +126,15 @@ webpackJsonp([0],[
 											{ to: '/modal' },
 											' Modal Window'
 										)
+									),
+									_react2.default.createElement(
+										'li',
+										null,
+										_react2.default.createElement(
+											_reactRouter.Link,
+											{ to: '/tab' },
+											' Tab'
+										)
 									)
 								)
 							)
@@ -146,7 +159,8 @@ webpackJsonp([0],[
 				_react2.default.createElement(_reactRouter.Route, { path: '/scrolling', component: _scrollingHeaderRecipe2.default }),
 				_react2.default.createElement(_reactRouter.Route, { path: '/graph', component: _graphForceLayoutRecipe2.default }),
 				_react2.default.createElement(_reactRouter.Route, { path: '/gallary', component: _imageGalleryRecipe2.default }),
-				_react2.default.createElement(_reactRouter.Route, { path: '/modal', component: _modalWindowRecipe2.default })
+				_react2.default.createElement(_reactRouter.Route, { path: '/modal', component: _modalWindowRecipe2.default }),
+				_react2.default.createElement(_reactRouter.Route, { path: '/tab', component: _tabRecipe2.default })
 			)
 		), document.getElementById('mainDiv'));
 	}
@@ -27503,7 +27517,7 @@ webpackJsonp([0],[
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(595);
+	__webpack_require__(591);
 
 	var GraphForceLayout = function (_Component) {
 	    _inherits(GraphForceLayout, _Component);
@@ -37161,6 +37175,46 @@ webpackJsonp([0],[
 /* 591 */
 /***/ function(module, exports, __webpack_require__) {
 
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(592);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(585)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../../node_modules/css-loader/index.js!./graphForceLayout.css", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!./graphForceLayout.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 592 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(580)(undefined);
+	// imports
+
+
+	// module
+	exports.push([module.id, "\n.node text {\n    fill: #000;\n    font-family: 'Times New Roman', Times, serif;\n    stroke: #777;\n    stroke-width: 0.02em;\n}\n\n.link {\n    stroke: #777;\n    stroke-width: 2px;\n}\n\n.graph-force{\n    overflow: hidden;\n    width:100%;\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 593 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -37173,7 +37227,7 @@ webpackJsonp([0],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _gallary = __webpack_require__(592);
+	var _gallary = __webpack_require__(594);
 
 	var _gallary2 = _interopRequireDefault(_gallary);
 
@@ -37217,10 +37271,10 @@ webpackJsonp([0],[
 	exports.default = ImageGalleryRecipe;
 
 /***/ },
-/* 592 */
+/* 594 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -37240,6 +37294,8 @@ webpackJsonp([0],[
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	__webpack_require__(595);
+
 	var ImageGallary = function (_Component) {
 	    _inherits(ImageGallary, _Component);
 
@@ -37250,36 +37306,36 @@ webpackJsonp([0],[
 	    }
 
 	    _createClass(ImageGallary, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                "div",
-	                { className: "col s12 m4" },
+	                'div',
+	                { className: 'col s12 m4' },
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "card" },
+	                    'div',
+	                    { className: 'card' },
 	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "card-image bsbs-card-image" },
-	                        _react2.default.createElement("img", { src: this.props.imageSrc }),
+	                        'div',
+	                        { className: 'card-image bsbs-card-image' },
+	                        _react2.default.createElement('img', { src: this.props.imageSrc }),
 	                        this.props.caption ? '<span className="card-title">Card Title</span>' : '',
 	                        _react2.default.createElement(
-	                            "a",
-	                            { className: "btn-floating halfway-fab waves-effect waves-light red" },
+	                            'a',
+	                            { className: 'btn-floating halfway-fab waves-effect waves-light red' },
 	                            _react2.default.createElement(
-	                                "i",
-	                                { className: "material-icons" },
-	                                "add"
+	                                'i',
+	                                { className: 'material-icons' },
+	                                'add'
 	                            )
 	                        )
 	                    ),
 	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "card-content" },
+	                        'div',
+	                        { className: 'card-content' },
 	                        _react2.default.createElement(
-	                            "p",
+	                            'p',
 	                            null,
-	                            "I am a very simple card. I am good at ."
+	                            'I am a very simple card. I am good at .'
 	                        )
 	                    )
 	                )
@@ -37293,7 +37349,47 @@ webpackJsonp([0],[
 	exports.default = ImageGallary;
 
 /***/ },
-/* 593 */
+/* 595 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(596);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(585)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../../node_modules/css-loader/index.js!./gallary.css", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!./gallary.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 596 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(580)(undefined);
+	// imports
+
+
+	// module
+	exports.push([module.id, ".bsbs-card-image {\n  overflow: hidden;\n}\n\n.bsbs-card-image img {\n  -webkit-transition: all .3s ease-in-out;\n  transition: all .3s ease-in-out;\n}\n.bsbs-card-image img:hover{\n  transform: scale(1.5);\n  cursor: pointer;\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 597 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37308,7 +37404,7 @@ webpackJsonp([0],[
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _modal = __webpack_require__(594);
+	var _modal = __webpack_require__(598);
 
 	var _modal2 = _interopRequireDefault(_modal);
 
@@ -37351,7 +37447,7 @@ webpackJsonp([0],[
 	exports.default = ModalWindowRecipe;
 
 /***/ },
-/* 594 */
+/* 598 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37415,13 +37511,198 @@ webpackJsonp([0],[
 	exports.default = ModalWindow;
 
 /***/ },
-/* 595 */
+/* 599 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _tab = __webpack_require__(600);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var tabRecipe = function tabRecipe(props) {
+	    return _react2.default.createElement(
+	        'div',
+	        { className: 'row' },
+	        _react2.default.createElement(
+	            'h3',
+	            null,
+	            'The Tab Component '
+	        ),
+	        _react2.default.createElement(
+	            _tab.Tab,
+	            null,
+	            _react2.default.createElement(
+	                _tab.TabItem,
+	                { title: 'tab#1' },
+	                'Tab111 Content'
+	            ),
+	            _react2.default.createElement(
+	                _tab.TabItem,
+	                { title: 'tab#2' },
+	                _react2.default.createElement(
+	                    'h4',
+	                    null,
+	                    'tab 2 content '
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'my content '
+	                )
+	            ),
+	            _react2.default.createElement(
+	                _tab.TabItem,
+	                { title: 'tab#3' },
+	                'Tab33331'
+	            )
+	        )
+	    );
+	};
+
+	exports.default = tabRecipe;
+
+/***/ },
+/* 600 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.Tab = exports.TabItem = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(601);
+
+	var TabItem = exports.TabItem = function (_Component) {
+	    _inherits(TabItem, _Component);
+
+	    function TabItem(props) {
+	        _classCallCheck(this, TabItem);
+
+	        return _possibleConstructorReturn(this, (TabItem.__proto__ || Object.getPrototypeOf(TabItem)).call(this, props));
+	    }
+
+	    _createClass(TabItem, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                ' ',
+	                this.props.children,
+	                ' '
+	            );
+	        }
+	    }]);
+
+	    return TabItem;
+	}(_react.Component);
+
+	var Tab = exports.Tab = function (_Component2) {
+	    _inherits(Tab, _Component2);
+
+	    function Tab(props) {
+	        _classCallCheck(this, Tab);
+
+	        var _this2 = _possibleConstructorReturn(this, (Tab.__proto__ || Object.getPrototypeOf(Tab)).call(this, props));
+
+	        _this2._getTabTitles = _this2._getTabTitles.bind(_this2);
+	        _this2._getTabContent = _this2._getTabContent.bind(_this2);
+	        _this2._handleClick = _this2._handleClick.bind(_this2);
+
+	        _this2.state = {
+	            selectedIndex: 0
+	        };
+	        return _this2;
+	    }
+
+	    _createClass(Tab, [{
+	        key: '_getTabTitles',
+	        value: function _getTabTitles() {
+	            var _this3 = this;
+
+	            var activeClass = '';
+	            return this.props.children.map(function (tabitem, indx) {
+	                activeClass = indx === _this3.state.selectedIndex ? 'active' : '';
+	                return _react2.default.createElement(
+	                    'li',
+	                    { className: activeClass, key: indx },
+	                    _react2.default.createElement(
+	                        'a',
+	                        { onClick: _this3._handleClick.bind(_this3, indx), className: 'bsbs-tab-item-title' },
+	                        tabitem.props.title,
+	                        ' '
+	                    ),
+	                    ' '
+	                );
+	            });
+	        }
+	    }, {
+	        key: '_getTabContent',
+	        value: function _getTabContent() {
+	            return this.props.children[this.state.selectedIndex].props.children;
+	        }
+	    }, {
+	        key: '_handleClick',
+	        value: function _handleClick(indx) {
+	            console.log('--------- ' + indx);
+	            this.setState({ selectedIndex: indx });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'bsbs-tab' },
+	                _react2.default.createElement(
+	                    'ul',
+	                    { className: 'bsbs-tab-title-ul' },
+	                    this._getTabTitles()
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'bsbs-tab-content' },
+	                    this._getTabContent()
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Tab;
+	}(_react.Component);
+
+/***/ },
+/* 601 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(596);
+	var content = __webpack_require__(602);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(585)(content, {});
@@ -37430,8 +37711,8 @@ webpackJsonp([0],[
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../node_modules/css-loader/index.js!./graphForceLayout.css", function() {
-				var newContent = require("!!../../node_modules/css-loader/index.js!./graphForceLayout.css");
+			module.hot.accept("!!../../node_modules/css-loader/index.js!./tab.css", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!./tab.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -37441,7 +37722,7 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 596 */
+/* 602 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(580)(undefined);
@@ -37449,7 +37730,7 @@ webpackJsonp([0],[
 
 
 	// module
-	exports.push([module.id, "\n.node text {\n    fill: #000;\n    font-family: 'Times New Roman', Times, serif;\n    stroke: #777;\n    stroke-width: 0.02em;\n}\n\n.link {\n    stroke: #777;\n    stroke-width: 2px;\n}\n\n.graph-force{\n    overflow: hidden;\n    width:100%;\n}", ""]);
+	exports.push([module.id, ".bsbs-tab-item{\n   \n}\n.bsbs-tab{\n    display: flex;\n    flex-direction: column;\n    width:80%;\n    height: 80vh;\n    margin: 1em;\n}\n.bsbs-tab-title-ul{\n    display: flex;\n    align-content: space-between;\n    width: 80%;\n    margin-bottom: -1px;\n    z-index: 100;\n}\n\n.bsbs-tab-title-ul li{\n  padding: 5px 10px;\n    border: 1px gray solid;\n    background: beige;\n    transition: all 0.3s ease-in-out;\n}\n\n.bsbs-tab-title-ul li:hover{\n \n    background: cadetblue;\n}\n\n.bsbs-tab-title-ul li.active{\n  \n    border-bottom:none;\n    \n}\n\n.bsbs-tab-item-title{\n   cursor: pointer;\n}\n\n.bsbs-tab-content{\n    border: 1px darkslateblue solid;\n    background: beige;\n    height:80%;\n    padding:1em;\n}\n\n.hidden{\n    display: none;\n}", ""]);
 
 	// exports
 

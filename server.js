@@ -30,7 +30,7 @@ app.use('/public', express.static(path.resolve(__dirname,'public')));
 app.get('*', (req, res)=>{
 
 	res.render('index', {
-		title: ' Universal javascript App',
+		title: 'The web front-end Recipes',
 		react: reactDom.renderToString(mainFact() )
 	})
 })

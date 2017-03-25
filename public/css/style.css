@@ -19,18 +19,11 @@ html, body{
     margin-top: 300px;
 }
 
-
-
-
-.bsbs-card-image {
-  overflow: hidden;
+[type="radio"]:not(:checked), [type="radio"]:checked {
+     position: static; 
+    /* left: -9999px; */
+     opacity: 1;
 }
 
-.bsbs-card-image img {
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-}
-.bsbs-card-image img:hover{
-  transform: scale(1.5);
-  cursor: pointer;
-}
+
+

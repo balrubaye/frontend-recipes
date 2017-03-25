@@ -1,0 +1,12 @@
+.bsbs-card-image {
+  overflow: hidden;
+}
+
+.bsbs-card-image img {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+.bsbs-card-image img:hover{
+  transform: scale(1.5);
+  cursor: pointer;
+}
