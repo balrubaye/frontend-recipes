@@ -1,0 +1,8 @@
+.bsbs-autocomplete{
+    display:flex;
+    flex-direction: column;
+    width: 50%;
+    float: auto;
+    margin:auto;
+
+}

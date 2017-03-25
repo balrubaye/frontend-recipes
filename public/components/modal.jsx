@@ -9,7 +9,7 @@ export default class ModalWindow extends Component{
         return (<div id={this.props.id} className='modal'>
                     <div className='modal-content'> 
                         <h4> {this.props.title} </h4>
-                        <p>{this.props.content}</p>
+                        <p>  {this.props.content}</p>
                     </div>
                 </div>);
     }

@@ -40,6 +40,10 @@ webpackJsonp([0],[
 
 	var _tabRecipe2 = _interopRequireDefault(_tabRecipe);
 
+	var _autoCompleteRecipe = __webpack_require__(603);
+
+	var _autoCompleteRecipe2 = _interopRequireDefault(_autoCompleteRecipe);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -75,7 +79,7 @@ webpackJsonp([0],[
 								{ className: 'nav-wrapper' },
 								_react2.default.createElement(
 									'a',
-									{ href: '#!', className: 'brand-logo' },
+									{ href: '#', className: 'brand-logo' },
 									'Web front-end Recipes'
 								),
 								_react2.default.createElement(
@@ -135,11 +139,21 @@ webpackJsonp([0],[
 											{ to: '/tab' },
 											' Tab'
 										)
+									),
+									_react2.default.createElement(
+										'li',
+										null,
+										_react2.default.createElement(
+											_reactRouter.Link,
+											{ to: '/autocomplet' },
+											' AutoComplete'
+										)
 									)
 								)
 							)
 						)
 					),
+					window.location.hash === '#/' ? 'helloooo' : '',
 					this.props.children
 				);
 			}
@@ -160,7 +174,8 @@ webpackJsonp([0],[
 				_react2.default.createElement(_reactRouter.Route, { path: '/graph', component: _graphForceLayoutRecipe2.default }),
 				_react2.default.createElement(_reactRouter.Route, { path: '/gallary', component: _imageGalleryRecipe2.default }),
 				_react2.default.createElement(_reactRouter.Route, { path: '/modal', component: _modalWindowRecipe2.default }),
-				_react2.default.createElement(_reactRouter.Route, { path: '/tab', component: _tabRecipe2.default })
+				_react2.default.createElement(_reactRouter.Route, { path: '/tab', component: _tabRecipe2.default }),
+				_react2.default.createElement(_reactRouter.Route, { path: '/autocomplet', component: _autoCompleteRecipe2.default })
 			)
 		), document.getElementById('mainDiv'));
 	}
@@ -37498,6 +37513,7 @@ webpackJsonp([0],[
 	                    _react2.default.createElement(
 	                        'p',
 	                        null,
+	                        '  ',
 	                        this.props.content
 	                    )
 	                )
@@ -37731,6 +37747,207 @@ webpackJsonp([0],[
 
 	// module
 	exports.push([module.id, ".bsbs-tab-item{\n   \n}\n.bsbs-tab{\n    display: flex;\n    flex-direction: column;\n    width:80%;\n    height: 80vh;\n    margin: 1em;\n}\n.bsbs-tab-title-ul{\n    display: flex;\n    align-content: space-between;\n    width: 80%;\n    margin-bottom: -1px;\n    z-index: 100;\n}\n\n.bsbs-tab-title-ul li{\n  padding: 5px 10px;\n    border: 1px gray solid;\n    background: beige;\n    transition: all 0.3s ease-in-out;\n}\n\n.bsbs-tab-title-ul li:hover{\n \n    background: cadetblue;\n}\n\n.bsbs-tab-title-ul li.active{\n  \n    border-bottom:none;\n    \n}\n\n.bsbs-tab-item-title{\n   cursor: pointer;\n}\n\n.bsbs-tab-content{\n    border: 1px darkslateblue solid;\n    background: beige;\n    height:80%;\n    padding:1em;\n}\n\n.hidden{\n    display: none;\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 603 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	        value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _autoComplete = __webpack_require__(604);
+
+	var _autoComplete2 = _interopRequireDefault(_autoComplete);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var tabRecipe = function tabRecipe(props) {
+	        return _react2.default.createElement(
+	                'div',
+	                { className: 'row' },
+	                _react2.default.createElement(
+	                        'h3',
+	                        null,
+	                        'The autoComplete Component '
+	                ),
+	                _react2.default.createElement(_autoComplete2.default, null)
+	        );
+	};
+
+	exports.default = tabRecipe;
+
+/***/ },
+/* 604 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _rxjs = __webpack_require__(235);
+
+	var _rxjs2 = _interopRequireDefault(_rxjs);
+
+	__webpack_require__(605);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var AutoComplete = function (_Component) {
+	    _inherits(AutoComplete, _Component);
+
+	    function AutoComplete(props) {
+	        _classCallCheck(this, AutoComplete);
+
+	        var _this = _possibleConstructorReturn(this, (AutoComplete.__proto__ || Object.getPrototypeOf(AutoComplete)).call(this, props));
+
+	        _this.count = 0;
+	        _this._getSearchResult = _this._getSearchResult.bind(_this);
+	        _this.state = { result: [] };
+	        _this.chars = 'abcdefghijklmnopqrstuvwxyz';
+	        return _this;
+	    }
+
+	    _createClass(AutoComplete, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var _this2 = this;
+
+	            _rxjs2.default.Observable.fromEvent(this.searchBox, 'keyup').debounceTime(200).subscribe(function (e) {
+	                console.log(e);
+	                if (e.target.value.length === 0) _this2.setState({ result: [] });else {
+	                    _this2._getMockedResult(e.target.value).then(function (result) {
+	                        console.log('---result');
+	                        console.log(result);
+	                        _this2.setState({ result: result });
+	                    });
+	                }
+	            });
+	        }
+	    }, {
+	        key: '_getRandomInt',
+	        value: function _getRandomInt(min, max) {
+	            min = Math.ceil(min);
+	            max = Math.floor(max);
+	            return Math.floor(Math.random() * (max - min)) + min;
+	        }
+	    }, {
+	        key: '_getMockedResult',
+	        value: function _getMockedResult(key) {
+	            var _this3 = this;
+
+	            return new Promise(function (resolve, reject) {
+	                var result = [];
+	                setTimeout(function () {
+	                    for (var i = 0; i < 5; i++) {
+	                        result.push(key + ' ' + _this3.chars.slice(_this3._getRandomInt(i, 24), 24));
+	                    }
+
+	                    resolve(result);
+	                }, 300);
+	            });
+	        }
+	    }, {
+	        key: '_getSearchResult',
+	        value: function _getSearchResult() {
+	            var _this4 = this;
+
+	            return this.state.result.map(function (val, i) {
+
+	                return _react2.default.createElement(
+	                    'li',
+	                    { key: i },
+	                    ' ',
+	                    val + ' ' + ++_this4.count,
+	                    '  '
+	                );
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this5 = this;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'bsbs-autocomplete' },
+	                _react2.default.createElement('input', { type: 'search', id: 'searchBox',
+	                    ref: function ref(search) {
+	                        _this5.searchBox = search;
+	                    }, placeholder: 'search here' }),
+	                _react2.default.createElement(
+	                    'ul',
+	                    { className: 'bsbs-autocomplete-result' },
+	                    this._getSearchResult()
+	                )
+	            );
+	        }
+	    }]);
+
+	    return AutoComplete;
+	}(_react.Component);
+
+	exports.default = AutoComplete;
+
+/***/ },
+/* 605 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(606);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(585)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../../node_modules/css-loader/index.js!./autoComplete.css", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!./autoComplete.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 606 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(580)(undefined);
+	// imports
+
+
+	// module
+	exports.push([module.id, ".bsbs-autocomplete{\n    display:flex;\n    flex-direction: column;\n    width: 50%;\n    float: auto;\n    margin:auto;\n\n}", ""]);
 
 	// exports
 
