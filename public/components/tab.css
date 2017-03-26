@@ -40,6 +40,7 @@
 
 .bsbs-tab-content{
     border: 1px darkslateblue solid;
+    border-radius: 2px;
     background: beige;
     height:80%;
     padding:1em;

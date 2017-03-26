@@ -11,7 +11,8 @@ module.exports ={
 	output:{
 		path: DIST_DIR,
 		filename: 'app.js'
-	},module: {
+	},
+	module: {
     loaders: [
       { test: /\.css$/, include: SRC_DIR, loader: 'style-loader!css-loader' },
       { test: /\.js[x]?$/, include: SRC_DIR, exclude: /node_modules/, loader: 'babel-loader' }
@@ -21,6 +22,6 @@ module.exports ={
     extensions: ['', '.js', '.jsx']
   },
 	plugins:[
-		 new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
+		 //new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
 	]
 }

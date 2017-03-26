@@ -127,15 +127,6 @@ webpackJsonp([0],[
 										null,
 										_react2.default.createElement(
 											_reactRouter.Link,
-											{ to: '/modal' },
-											' Modal Window'
-										)
-									),
-									_react2.default.createElement(
-										'li',
-										null,
-										_react2.default.createElement(
-											_reactRouter.Link,
 											{ to: '/tab' },
 											' Tab'
 										)
@@ -5409,10 +5400,6 @@ webpackJsonp([0],[
 	var _reactDom = __webpack_require__(32);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _scrollingHeader = __webpack_require__(234);
-
-	var _scrollingHeader2 = _interopRequireDefault(_scrollingHeader);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37221,7 +37208,7 @@ webpackJsonp([0],[
 
 
 	// module
-	exports.push([module.id, "\n.node text {\n    fill: #000;\n    font-family: 'Times New Roman', Times, serif;\n    stroke: #777;\n    stroke-width: 0.02em;\n}\n\n.link {\n    stroke: #777;\n    stroke-width: 2px;\n}\n\n.graph-force{\n    overflow: hidden;\n    width:100%;\n}", ""]);
+	exports.push([module.id, "\n.node text {\n    fill: #000;\n    font-family: 'Times New Roman', Times, serif;\n    stroke: #777;\n    stroke-width: 0.02em;\n}\n\n.link {\n    stroke: #777;\n    stroke-width: 2px;\n}\n\n.graph-force{\n    overflow: hidden;\n    width:100%;\n    height: 95vh;\n}\n\n.graph-fource svg{\n    height: 90vh;\n}", ""]);
 
 	// exports
 
@@ -37746,7 +37733,7 @@ webpackJsonp([0],[
 
 
 	// module
-	exports.push([module.id, ".bsbs-tab-item{\n   \n}\n.bsbs-tab{\n    display: flex;\n    flex-direction: column;\n    width:80%;\n    height: 80vh;\n    margin: 1em;\n}\n.bsbs-tab-title-ul{\n    display: flex;\n    align-content: space-between;\n    width: 80%;\n    margin-bottom: -1px;\n    z-index: 100;\n}\n\n.bsbs-tab-title-ul li{\n  padding: 5px 10px;\n    border: 1px gray solid;\n    background: beige;\n    transition: all 0.3s ease-in-out;\n}\n\n.bsbs-tab-title-ul li:hover{\n \n    background: cadetblue;\n}\n\n.bsbs-tab-title-ul li.active{\n  \n    border-bottom:none;\n    \n}\n\n.bsbs-tab-item-title{\n   cursor: pointer;\n}\n\n.bsbs-tab-content{\n    border: 1px darkslateblue solid;\n    background: beige;\n    height:80%;\n    padding:1em;\n}\n\n.hidden{\n    display: none;\n}", ""]);
+	exports.push([module.id, ".bsbs-tab-item{\n   \n}\n.bsbs-tab{\n    display: flex;\n    flex-direction: column;\n    width:80%;\n    height: 80vh;\n    margin: 1em;\n}\n.bsbs-tab-title-ul{\n    display: flex;\n    align-content: space-between;\n    width: 80%;\n    margin-bottom: -1px;\n    z-index: 100;\n}\n\n.bsbs-tab-title-ul li{\n  padding: 5px 10px;\n    border: 1px gray solid;\n    background: beige;\n    transition: all 0.3s ease-in-out;\n}\n\n.bsbs-tab-title-ul li:hover{\n \n    background: cadetblue;\n}\n\n.bsbs-tab-title-ul li.active{\n  \n    border-bottom:none;\n    \n}\n\n.bsbs-tab-item-title{\n   cursor: pointer;\n}\n\n.bsbs-tab-content{\n    border: 1px darkslateblue solid;\n    border-radius: 2px;\n    background: beige;\n    height:80%;\n    padding:1em;\n}\n\n.hidden{\n    display: none;\n}", ""]);
 
 	// exports
 
@@ -37828,6 +37815,7 @@ webpackJsonp([0],[
 	        _this._getSearchResult = _this._getSearchResult.bind(_this);
 	        _this.state = { result: [] };
 	        _this.chars = 'abcdefghijklmnopqrstuvwxyz';
+
 	        return _this;
 	    }
 
@@ -37836,7 +37824,7 @@ webpackJsonp([0],[
 	        value: function componentDidMount() {
 	            var _this2 = this;
 
-	            _rxjs2.default.Observable.fromEvent(this.searchBox, 'keyup').debounceTime(200).subscribe(function (e) {
+	            this.search$ = _rxjs2.default.Observable.fromEvent(this.searchBox, 'keyup').debounceTime(200).subscribe(function (e) {
 	                console.log(e);
 	                if (e.target.value.length === 0) _this2.setState({ result: [] });else {
 	                    _this2._getMockedResult(e.target.value).then(function (result) {
@@ -37846,6 +37834,11 @@ webpackJsonp([0],[
 	                    });
 	                }
 	            });
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            if (this.search$) this.search$.unsubscribe();
 	        }
 	    }, {
 	        key: '_getRandomInt',
@@ -37867,7 +37860,7 @@ webpackJsonp([0],[
 	                    }
 
 	                    resolve(result);
-	                }, 300);
+	                }, Math.random() * 900);
 	            });
 	        }
 	    }, {

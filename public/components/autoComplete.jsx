@@ -9,10 +9,11 @@ export default class AutoComplete extends Component{
         this._getSearchResult= this._getSearchResult.bind(this);
         this.state={result:[]};
         this.chars='abcdefghijklmnopqrstuvwxyz';
+        
     }
 
     componentDidMount(){
-        Rxjs.Observable
+       this.search$= Rxjs.Observable
         .fromEvent(this.searchBox, 'keyup')
         .debounceTime(200)
         .subscribe((e)=>{
@@ -29,6 +30,11 @@ export default class AutoComplete extends Component{
             
         })
     }
+
+    componentWillUnmount(){
+        if(this.search$) this.search$.unsubscribe();
+    }
+
     _getRandomInt(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
@@ -44,7 +50,7 @@ export default class AutoComplete extends Component{
                 }
 
                 resolve(result);
-            }, 300)
+            }, Math.random()* 900)
         })
     }
 

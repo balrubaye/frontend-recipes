@@ -23,7 +23,6 @@ class App extends React.Component{
 								<li><Link to='/scrolling'> Scrolling Header </Link></li>
 								<li><Link to='/graph'> Graph </Link></li>
 								<li><Link to='/gallary'> Image Gallary </Link></li>
-								<li><Link to='/modal'> Modal Window</Link></li>
 								<li><Link to='/tab'> Tab</Link></li>
 								<li><Link to='/autocomplet'> AutoComplete</Link></li>
 								</ul>
