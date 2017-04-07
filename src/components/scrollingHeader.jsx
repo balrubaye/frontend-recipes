@@ -4,19 +4,19 @@ import Rxjs from 'rxjs';
 require('./scrollingHeader.css');
 
 export default class ScrollingHeader extends Component{
-    constructor(props){
+	constructor(props){
         super(props);
         this.state={
             headerClass:'header'
         };
 
-        this.tickHeader= this.tickHeader.bind(this);
+        this._tickHeader= this._tickHeader.bind(this);
         this.flag=true;
         this.scroll$=null;
         
     }
 
-    tickHeader(){
+    _tickHeader(){
         //console.log(this.flag);
         if(this.flag){
             window.requestAnimationFrame(()=>{
@@ -37,14 +37,13 @@ export default class ScrollingHeader extends Component{
         this.flag=false;
     }
     componentDidMount(){
-        //window.addEventListener('scroll', this.tickHeader);
-        
+               
         console.log('----------Mount ---------')
          this.scroll$= Rxjs.Observable.fromEvent(window,'scroll')
         .debounceTime(200)
         .subscribe( (e)=>{
           
-            this.tickHeader();
+            this._tickHeader();
             
         })
     }
@@ -53,7 +52,6 @@ export default class ScrollingHeader extends Component{
         
         this.scroll$.unsubscribe();
 
-        //window.removeEventListener('scroll', this.tickHeader)
     }
     render(){
         return(<header>
