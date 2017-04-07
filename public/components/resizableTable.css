@@ -1,0 +1,30 @@
+.bsbs-resizable-table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+
+}
+
+.bsbs-resizable-table thead{
+    color:brown;
+}
+
+.bsbs-resizable-table thead td{
+    
+}
+
+.bsbs-resizable-table td{
+    border: 1px solid black;
+    padding: 5px;
+
+}
+
+.bsbs-resizable-table .bsbs-sperator {
+    /* border-right: 2px solid brown; */
+    /* float: right; */
+    z-index: 100;
+    width: 2px;
+    display: inline-block;
+    background: brown;
+    cursor: e-resize;
+}

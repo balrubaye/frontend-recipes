@@ -44,6 +44,14 @@ webpackJsonp([0],[
 
 	var _autoCompleteRecipe2 = _interopRequireDefault(_autoCompleteRecipe);
 
+	var _worldMapRecipe = __webpack_require__(607);
+
+	var _worldMapRecipe2 = _interopRequireDefault(_worldMapRecipe);
+
+	var _resizableTableRecipe = __webpack_require__(609);
+
+	var _resizableTableRecipe2 = _interopRequireDefault(_resizableTableRecipe);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -139,6 +147,24 @@ webpackJsonp([0],[
 											{ to: '/autocomplet' },
 											' AutoComplete'
 										)
+									),
+									_react2.default.createElement(
+										'li',
+										null,
+										_react2.default.createElement(
+											_reactRouter.Link,
+											{ to: '/worldmap' },
+											' Map'
+										)
+									),
+									_react2.default.createElement(
+										'li',
+										null,
+										_react2.default.createElement(
+											_reactRouter.Link,
+											{ to: '/resizabletable' },
+											' resizable table'
+										)
 									)
 								)
 							)
@@ -166,7 +192,9 @@ webpackJsonp([0],[
 				_react2.default.createElement(_reactRouter.Route, { path: '/gallary', component: _imageGalleryRecipe2.default }),
 				_react2.default.createElement(_reactRouter.Route, { path: '/modal', component: _modalWindowRecipe2.default }),
 				_react2.default.createElement(_reactRouter.Route, { path: '/tab', component: _tabRecipe2.default }),
-				_react2.default.createElement(_reactRouter.Route, { path: '/autocomplet', component: _autoCompleteRecipe2.default })
+				_react2.default.createElement(_reactRouter.Route, { path: '/autocomplet', component: _autoCompleteRecipe2.default }),
+				_react2.default.createElement(_reactRouter.Route, { path: '/worldmap', component: _worldMapRecipe2.default }),
+				_react2.default.createElement(_reactRouter.Route, { path: '/resizabletable', component: _resizableTableRecipe2.default })
 			)
 		), document.getElementById('mainDiv'));
 	}
@@ -37941,6 +37969,326 @@ webpackJsonp([0],[
 
 	// module
 	exports.push([module.id, ".bsbs-autocomplete{\n    display:flex;\n    flex-direction: column;\n    width: 50%;\n    float: auto;\n    margin:auto;\n\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 607 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _worldMap = __webpack_require__(608);
+
+	var _worldMap2 = _interopRequireDefault(_worldMap);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var worldMapRecipe = function worldMapRecipe() {
+	  return _react2.default.createElement(_worldMap2.default, { width: window.innerWidth * .88, height: window.innerHeight * .88 });
+	};
+
+	exports.default = worldMapRecipe;
+
+/***/ },
+/* 608 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+					value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _d = __webpack_require__(590);
+
+	var _d2 = _interopRequireDefault(_d);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var WorldMap = function (_Component) {
+					_inherits(WorldMap, _Component);
+
+					function WorldMap(props) {
+									_classCallCheck(this, WorldMap);
+
+									return _possibleConstructorReturn(this, (WorldMap.__proto__ || Object.getPrototypeOf(WorldMap)).call(this, props));
+					}
+
+					_createClass(WorldMap, [{
+									key: '_renderMap',
+									value: function _renderMap() {
+													//Width and height
+													var _props = this.props,
+													    width = _props.width,
+													    height = _props.height;
+
+													//Define map projection
+
+													var projection = _d2.default.geo.mercator().center([0, 40]).translate([width / 2, height / 2]).scale([width / 7]);
+
+													//Define path generator
+													var path = _d2.default.geo.path().projection(projection);
+
+													//Create SVG
+													var svg = _d2.default.select("#bsbs-world-map").append("svg").attr("width", width).attr("height", height);
+
+													//Load in GeoJSON data
+													_d2.default.json("/public/data/geo/mapshaper_output.json", function (json) {
+
+																	//Bind data and create one path per GeoJSON feature
+																	svg.selectAll("path").data(json.features).enter().append("path").attr("d", path);
+													});
+									}
+					}, {
+									key: 'componentDidMount',
+									value: function componentDidMount() {
+													this._renderMap();
+									}
+					}, {
+									key: 'render',
+									value: function render() {
+													return _react2.default.createElement('div', { id: 'bsbs-world-map', className: 'bsbs-world-map' });
+									}
+					}]);
+
+					return WorldMap;
+	}(_react.Component);
+
+	exports.default = WorldMap;
+
+/***/ },
+/* 609 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _resizableTable = __webpack_require__(610);
+
+	var _resizableTable2 = _interopRequireDefault(_resizableTable);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var recipe = function recipe() {
+	    return _react2.default.createElement(
+	        'div',
+	        { className: 'section' },
+	        _react2.default.createElement(_resizableTable2.default, null)
+	    );
+	};
+
+	exports.default = recipe;
+
+/***/ },
+/* 610 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	__webpack_require__(611);
+
+	var ResizableTable = function (_Component) {
+	    _inherits(ResizableTable, _Component);
+
+	    function ResizableTable(props) {
+	        _classCallCheck(this, ResizableTable);
+
+	        return _possibleConstructorReturn(this, (ResizableTable.__proto__ || Object.getPrototypeOf(ResizableTable)).call(this, props));
+	    }
+
+	    _createClass(ResizableTable, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'table',
+	                { className: 'bsbs-resizable-table' },
+	                _react2.default.createElement(
+	                    'thead',
+	                    null,
+	                    _react2.default.createElement(
+	                        'td',
+	                        null,
+	                        'header1 ',
+	                        _react2.default.createElement(
+	                            'span',
+	                            { className: 'bsbs-sperator' },
+	                            ' '
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'td',
+	                        null,
+	                        'header2 ',
+	                        _react2.default.createElement(
+	                            'span',
+	                            { className: 'bsbs-sperator' },
+	                            ' '
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'td',
+	                        null,
+	                        'header3 ',
+	                        _react2.default.createElement(
+	                            'span',
+	                            { className: 'bsbs-sperator' },
+	                            ' '
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'tbody',
+	                    null,
+	                    _react2.default.createElement(
+	                        'tr',
+	                        null,
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            'data1 '
+	                        ),
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            'data2 '
+	                        ),
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            'data3 '
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'tr',
+	                        null,
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            'data11 '
+	                        ),
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            'data22 '
+	                        ),
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            'data33 '
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'tr',
+	                        null,
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            'data111 '
+	                        ),
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            'data222 '
+	                        ),
+	                        _react2.default.createElement(
+	                            'td',
+	                            null,
+	                            'data333 '
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return ResizableTable;
+	}(_react.Component);
+
+	exports.default = ResizableTable;
+
+/***/ },
+/* 611 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(612);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(585)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../../node_modules/css-loader/index.js!./resizableTable.css", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!./resizableTable.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 612 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(580)(undefined);
+	// imports
+
+
+	// module
+	exports.push([module.id, ".bsbs-resizable-table{\n    border: 1px solid black;\n    border-collapse: collapse;\n    padding: 10px;\n\n}\n\n.bsbs-resizable-table thead{\n    color:brown;\n}\n\n.bsbs-resizable-table thead td{\n    \n}\n\n.bsbs-resizable-table td{\n    border: 1px solid black;\n    padding: 5px;\n\n}\n\n.bsbs-resizable-table .bsbs-sperator {\n    /* border-right: 2px solid brown; */\n    /* float: right; */\n    z-index: 100;\n    width: 2px;\n    display: inline-block;\n    background: brown;\n    cursor: e-resize;\n}", ""]);
 
 	// exports
 

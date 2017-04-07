@@ -8,7 +8,8 @@ import ImageGallaryRecipe from './recipes/imageGalleryRecipe.jsx';
 import ModalWindowRecipe from './recipes/modalWindowRecipe.jsx';
 import TabRecipe from './recipes/tabRecipe.jsx';
 import AutoCompleteRecipe from './recipes/autoCompleteRecipe.jsx';
-
+import WorldMapRecipe from './recipes/worldMapRecipe.jsx';
+import ResizableTableRecipe from './recipes/resizableTableRecipe';
 
 class App extends React.Component{
 	render(){
@@ -25,6 +26,8 @@ class App extends React.Component{
 								<li><Link to='/gallary'> Image Gallary </Link></li>
 								<li><Link to='/tab'> Tab</Link></li>
 								<li><Link to='/autocomplet'> AutoComplete</Link></li>
+								<li><Link to='/worldmap'> Map</Link></li>
+								<li><Link to='/resizabletable'> resizable table</Link></li>
 								</ul>
 							</div>
 						</nav>
@@ -45,8 +48,10 @@ if(typeof window !== 'undefined' ){
 				<Route path='/graph' 	 component={GraphForceLayoutRecipe} />
 				<Route path='/gallary' 	 component={ImageGallaryRecipe} />
 				<Route path='/modal' 	 component={ModalWindowRecipe} />
-				<Route path='/tab' 	 component={TabRecipe} />
+				<Route path='/tab' 	     component={TabRecipe} />
 				<Route path='/autocomplet' 	 component={AutoCompleteRecipe} />
+				<Route path='/worldmap' 	 component={WorldMapRecipe} />
+				<Route path='/resizabletable' 	 component={ResizableTableRecipe} />
 		   </Route>
 	</Router> , document.getElementById('mainDiv'));
 }
