@@ -1,9 +1,9 @@
-.header{
+.bs-scrolling-header{
   position:fixed;
   background: orange ;
   height:100px;
   width:100%;
-  transition:  all .5s;
+  transition:  all .3s ease-in-out;
   margin-bottom:50px;
   top:65px;
  
